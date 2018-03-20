@@ -11,6 +11,7 @@ This is SmartGem core client. This will be the tool to connect to SmartGem block
 ```
 sudo apt-get update
 sudo apt-get dist-upgrade
+sudo apt-get autoremove
 
 ```
 2. Install Git
@@ -24,7 +25,7 @@ sudo apt-get install autoconf libboost-all-dev libssl-dev libprotobuf-dev protob
 sudo apt-get install libminiupnpc-dev
 
 ```
-4. The client rely on old version 4.8.3 of Berkeley database and it is not available as a standard Ubuntu 16.04 package. You need  to compile from source.
+4. The client rely on old version 4.8.3 of Berkeley DB and it is not available as a standard Ubuntu 16.04 package. You need  to compile from source.
 ```
 1. Download BerkeleyDB source package
 wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
@@ -39,8 +40,8 @@ BDB_PREFIX=$(pwd)/build
 make install
 cd ../..
 #Path to your BerkerleyDB build. Change accordingly.
-export CPATH="/path/db-4.8.30.NC/build_unix/build/include"
-export LIBRARY_PATH="/path/db-4.8.30.NC/build_unix/build/lib"
+export CPATH="/path to your build/db-4.8.30.NC/build_unix/build/include"
+export LIBRARY_PATH="/path to your build/db-4.8.30.NC/build_unix/build/lib"
 ```
 ### Build
 
@@ -53,4 +54,7 @@ cd smart-gem/src
 2. Build
 ```
 make -f makefile.unix
+
+#If you have a faster and larger memory machine run with the -j to make it faster
+make -j4 -f makefile.unix
 ```
