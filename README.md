@@ -51,10 +51,22 @@ git clone https://github.com/gemchain/smartgem.git
 cd smartgem/src
 ```
 
-2. Build
+2. Build Core
 ```
 make -f makefile.unix
 
 #If you have a faster and larger memory machine run with the -j to make it faster
 make -j4 -f makefile.unix
+
+#run client
+./smartgemd
+```
+
+3. Build GUI
+```
+cd ..
+qmake
+make -j4
+#run gui client
+./smartgem-qt
 ```
