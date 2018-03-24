@@ -48,7 +48,7 @@ export LIBRARY_PATH="/path to your build/db-4.8.30.NC/build_unix/build/lib"
 1. Clone SmartGem repository
 ```
 git clone https://github.com/gemchain/smartgem.git
-cd smart-gem/src
+cd smartgem/src
 ```
 
 2. Build
