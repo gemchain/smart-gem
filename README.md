@@ -23,25 +23,13 @@ sudo apt-get install git
 sudo apt-get install build-essential
 sudo apt-get install autoconf libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libqt4-dev libqrencode-dev libtool
 sudo apt-get install libminiupnpc-dev
-
+sudo apt-get install software-properties-common
 ```
-4. The client rely on old version 4.8.3 of Berkeley DB and it is not available as a standard Ubuntu 16.04 package. You need  to compile from source.
+4. The client rely on old version 4.8.3 of Berkeley DB and it is not available as a standard Ubuntu 16.04 package. You need  to Bitcoin PPA.
 ```
-1. Download BerkeleyDB source package
-wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
-```
-```
-2. Compile it
-tar -xvf db-4.8.30.NC.tar.gz
-cd db-4.8.30.NC/build_unix
-mkdir -p build
-BDB_PREFIX=$(pwd)/build
-../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
-make install
-cd ../..
-#Path to your BerkerleyDB build. Change accordingly.
-export CPATH="/path to your build/db-4.8.30.NC/build_unix/build/include"
-export LIBRARY_PATH="/path to your build/db-4.8.30.NC/build_unix/build/lib"
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
 ```
 ### Build
 
