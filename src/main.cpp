@@ -51,9 +51,9 @@ unsigned int nCoinCacheSize = 5000;
 bool fHaveGUI = false;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64 CTransaction::nMinTxFee = 1000;  // Override with -mintxfee
+int64 CTransaction::nMinTxFee = 10000;  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
-int64 CTransaction::nMinRelayTxFee = 1000;
+int64 CTransaction::nMinRelayTxFee = 10000;
 
 CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 
@@ -1275,11 +1275,11 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 static const int64 nTargetTimespan = 60; // 60 seconds a block
-static const int64 nTargetSpacing = 30; // 30 seconds
+static const int64 nTargetSpacing = 30;
 static const int64 nInterval = nTargetTimespan / nTargetSpacing; // retarget every 2 blocks
 
-static const int64 nAveragingInterval = nInterval * 20;
-static const int64 nAveragingTargetTimespan = nAveragingInterval * nTargetSpacing; // 10 days average
+static const int64 nAveragingInterval = nInterval * 50;
+static const int64 nAveragingTargetTimespan = nAveragingInterval * nTargetSpacing;
 
 static const int64 nMaxAdjustDown = 20; // 20% adjustment down
 static const int64 nMaxAdjustUp = 10; // 10% adjustment up
