@@ -59,8 +59,7 @@ make -j4
 ./smartgem-qt
 ```
 
-4. Add RPC username and password
-The SmartGem client might ask you to add a rpc username and password. 
+4. Add RPC username and password. The SmartGem client might ask you to add a rpc username and password. 
 ```
 cd
 cd .smartgem
