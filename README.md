@@ -1,5 +1,5 @@
 #### About
-This is SmartGem core client. This will be the tool to connect to SmartGem blockchain network
+This is SmartGem core client. This will be the tool to connect to SmartGem blockchain network. Currently the available on Linux. Windows version will be availble in newar future.
 
 #### Pre-requisite
 1. VPS with min 1GB RAM and 20GB HD space
@@ -57,4 +57,18 @@ qmake
 make -j4
 #run gui client
 ./smartgem-qt
+```
+
+4. Add RPC username and password
+The SmartGem client might ask you to add a rpc username and password. 
+```
+cd
+cd .smartgem
+nano smartgem.conf
+
+#Add the line below
+rpcuser=user
+rpcpassword=pasword
+
+Exit and save. Run ./smartgemd again.
 ```
