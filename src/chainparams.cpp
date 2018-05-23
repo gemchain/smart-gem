@@ -24,8 +24,8 @@ public:
     CMainParams() {
         // The message start string is designed to be unlikely to occur in normal data.
         pchMessageStart[0] = 0xc3;
-        pchMessageStart[1] = 0x04;
-        pchMessageStart[2] = 0xc9;
+        pchMessageStart[1] = 0xc4;
+        pchMessageStart[2] = 0x0a;
         pchMessageStart[3] = 0xb4;
         nDefaultPort = 7420;
         nRPCPort = 7421;
@@ -67,7 +67,6 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xdbdf0a4bce84aed87ec9d961af3d5eab506d88be3c379684a9e80b9494d3da71"));
 
         vSeeds.push_back(CDNSSeedData("node01.smart-gem.io", "node02.smart-gem.io"));
-        vSeeds.push_back(CDNSSeedData("node03.smart-gem.io", "smartgem.kcngtech.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = 38;
         base58Prefixes[SCRIPT_ADDRESS] = 30;

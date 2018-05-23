@@ -51,9 +51,9 @@ unsigned int nCoinCacheSize = 5000;
 bool fHaveGUI = false;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64 CTransaction::nMinTxFee = 100;  // Override with -mintxfee
+int64 CTransaction::nMinTxFee = 10;  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
-int64 CTransaction::nMinRelayTxFee = 100;
+int64 CTransaction::nMinRelayTxFee = 10;
 
 CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 
@@ -764,8 +764,11 @@ int64 GetMinFee(const CTransaction& tx, bool fAllowFree, enum GetMinFee_mode mod
         //   to be considered to fall into this category
         // * If we are creating a transaction we allow transactions up to DEFAULT_BLOCK_PRIORITY_SIZE - 17000
         //   (= 10000) to be considered safe and assume they can likely make it into this section
+
         if (nBytes < (mode == GMF_SEND ? (DEFAULT_BLOCK_PRIORITY_SIZE - 17000) : (DEFAULT_BLOCK_PRIORITY_SIZE - 1000)))
             nMinFee = 0;
+
+
     }
 
     // To limit dust spam, require base fee if any output is less than 0.01
@@ -1258,9 +1261,9 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     // Inflation phase: Subsidy reaches minimum subsidy
     // Network is rewarded for transaction processing with transaction fees and 
     // the inflationary subsidy
-    if (nHeight == 1) {
+    if (nHeight <= 1000) {
 
-            nSubsidy = 1365000000 * COIN;
+            nSubsidy = 1365000 * COIN;
 
         } else {
 
